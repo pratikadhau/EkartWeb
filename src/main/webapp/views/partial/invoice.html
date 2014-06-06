@@ -1,16 +1,16 @@
 <div ng-model="invoice">
 	<h1>Invoice</h1>
-	<table>
+	<table >
 		<tr><th>Name</th><th>Price</th></tr>
-		<tr ng-repeat="item in invoice.invoiceItem">
+		<tr ng-repeat="item in invoice.invoiceItem" >
 			<td>{{item.itemName}}</td>
-			<td>{{item.itemPrice}}</td>
+			<td > <div align="right">{{item.itemPrice}}</div> </td>
 		</tr>
-		<tr>
-			<td>
+		<tr >
+			<td rowspan="2">
 				<b>Total</b>
 			</td>
-			<td align="right">
+			<td rowspan="2">
 				{{invoice.totalPrice}}
 			</td>
 		</tr>

@@ -10,15 +10,16 @@
 		</tr>
 	</table>
 	</div>
-	
+
 	<div>
 	MyCart:
 	<table>
-		<tr><th></th><th></th></tr>
-		<tr ng-repeat="product in cartprosuctList">
+		<tr><th>Id</th><th>name</th><th>price</th><th></th></tr>
+		<tr ng-repeat="product in cartProductList">
 			<td>{{product.productId}}</td>
 			<td>{{product.name}}</td>
 			<td>{{product.price}}</td>
+            <td><button ng-click="removeFromCart({{product.productId}})">remove</button></td>
 	</tr>
 	</table>
 	<A ng-href="#/invoice"> Express checkout</A>

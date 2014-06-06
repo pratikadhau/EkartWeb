@@ -7,8 +7,12 @@ var ProductController = function($scope, $routeParams, $http,CartService) {
 	$http.get("http://localhost:8080/Ekart/category/"+$routeParams.categoryId).success(function(data) {
 		$scope.productList=data;
 	});
-	$scope.cartprosuctList = CartService.getCartProducts();
-	
+	$scope.cartProductList = CartService.getCartProducts();
+
+	$scope.removeFromCart = function(productId){
+	    CartService.removeFromCart(productId);
+	}
+
 	$scope.addToCart = function(product) {
 		CartService.addToCart(product);
 	};
@@ -30,30 +34,40 @@ var InvoiceController= function($scope, $http, CartService){
 };
 
 demoApp.factory('CartService', function() {
-	var cartprosuctList = [];
+	var cartProductList = [];
 	return {
 		getCartProducts : function() {
-			return cartprosuctList;
+			return cartProductList;
 		}
 	,
 		addToCart : function(product) {
-			cartprosuctList.push(product);
+			cartProductList.push(product);
 		}
 	,
 		getCart : function() {
 			var cart = {
 				productIds : []
 			};
-			for (var int = 0; int < cartprosuctList.length; int++) {
-				var productId = cartprosuctList[int].productId;
+			for (var int = 0; int < cartProductList.length; int++) {
+				var productId = cartProductList[int].productId;
 				cart.productIds.push(productId);
 			}
 			return cart;
 		}
 	,
 		clear : function(){
-			cartprosuctList=[];
+			cartProductList=[];
 		}
+	,
+	   removeFromCart : function(productId){
+	        var index={};
+	        for (var int = 0; int < cartProductList.length; int++) {
+	            if(productId == cartProductList[int].productId){
+	                index=int;
+	            }
+	        }
+	        cartProductList.splice(index,1);
+	    }
 	};
 });
 

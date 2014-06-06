@@ -1,0 +1,18 @@
+<div ng-model="invoice">
+	<h1>Invoice</h1>
+	<table>
+		<tr><th>Name</th><th>Price</th></tr>
+		<tr ng-repeat="item in invoice.invoiceItem">
+			<td>{{item.itemName}}</td>
+			<td>{{item.itemPrice}}</td>
+		</tr>
+		<tr>
+			<td>
+				<b>Total</b>
+			</td>
+			<td align="right">
+				{{invoice.totalPrice}}
+			</td>
+		</tr>
+	</table>
+</div>

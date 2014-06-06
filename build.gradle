@@ -1,0 +1,31 @@
+apply plugin: 'java'
+apply plugin: 'war'
+apply plugin: 'eclipse'
+
+
+
+version=""
+group="com.ekart"
+archivesBaseName="EkartWeb"
+
+repositories {
+    mavenCentral()
+}
+
+
+task deploylocal() << {
+	copy{
+	  from "${buildDir}\\libs"
+	  into "C:/apache-tomcat-6.0.39/webapps"
+	  include '*.war'
+	}
+  }
+
+
+
+
+
+
+
+ 
+ 

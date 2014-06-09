@@ -1,4 +1,4 @@
-var demoApp = angular.module("demoApp", []);
+var demoApp = angular.module("demoApp", ["ngRoute"]);
 
 demoApp.config(function($routeProvider) {
 	$routeProvider.when('/categoryList', {
@@ -14,3 +14,13 @@ demoApp.config(function($routeProvider) {
 		redirectTo : '/categoryList'
 	});
 });
+
+demoApp.filter('currencyF', function(){
+    return function (input,exchangeRate){
+        if(!exchangeRate){
+            exchangeRate = 0.017;
+        }
+        var amount =input * exchangeRate
+        return amount.toFixed(2);
+    }
+})

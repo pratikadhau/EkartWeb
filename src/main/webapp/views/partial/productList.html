@@ -1,12 +1,21 @@
 <h2>PRODUCTS</h2>
 	<div>
 	<table>
-		<tr><th>Product ID</th><th>Product Name</th><th>Price</th></tr>
-		<tr ng-repeat="product in productList">
+		<tr>
+            <th>Product ID</th>
+            <th>Product Name</th>
+            <th>Price</th>
+            <th>Date</th>
+            <th></th>
+        </tr>
+		<tr ng-repeat="product in model.productList">
 			<td>{{product.productId}}</td>
 			<td>{{product.name}}</td>
-			<td>{{product.price}}</td>
-			<td><button ng-click="addToCart({{product}})"> Add to Cart</button></td>
+			<td>${{product.price | currencyF}}</td>
+			<td>{{product.manufacturingDate | date:'medium'}}</td>
+			<td>
+                <button ng-click='model.addToCart(product)'> Add to Cart</button>
+            </td>
 		</tr>
 	</table>
 	</div>
@@ -14,12 +23,19 @@
 	<div>
 	MyCart:
 	<table>
-		<tr><th>Id</th><th>name</th><th>price</th><th></th></tr>
-		<tr ng-repeat="product in cartProductList">
+		<tr>
+            <th>Id</th>
+            <th>name</th>
+            <th>price</th>
+            <th></th>
+        </tr>
+		<tr ng-repeat="product in model.cartProductList">
 			<td>{{product.productId}}</td>
 			<td>{{product.name}}</td>
 			<td>{{product.price}}</td>
-            <td><button ng-click="removeFromCart({{product.productId}})">remove</button></td>
+            <td>
+                <button ng-click='model.removeFromCart(product.productId)'>remove</button>
+            </td>
 	</tr>
 	</table>
 	<A ng-href="#/invoice"> Express checkout</A>

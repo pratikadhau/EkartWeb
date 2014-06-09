@@ -1,6 +1,6 @@
 apply plugin: 'java'
 apply plugin: 'war'
-apply plugin: 'eclipse'
+apply plugin: 'idea'
 
 
 
@@ -16,7 +16,7 @@ repositories {
 task deploylocal() << {
 	copy{
 	  from "${buildDir}\\libs"
-	  into "C:/apache-tomcat-6.0.39/webapps"
+	  into "/home/lt013962/installed/apache-tomcat-8.0.8/webapps"
 	  include '*.war'
 	}
   }

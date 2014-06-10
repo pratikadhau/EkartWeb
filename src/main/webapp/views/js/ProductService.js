@@ -1,4 +1,4 @@
-var ProductService = function ($http,CartService){
+var ProductService = ['$http','CartService',function ($http,CartService){
     var productService={};
 
     productService.getProducts = function(categoryId,callBack){
@@ -8,6 +8,6 @@ var ProductService = function ($http,CartService){
     }
 
     return productService;
-}
+}]
 
 demoApp.factory("ProductService",ProductService);

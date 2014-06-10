@@ -1,4 +1,4 @@
-var InvoiceController= function($scope, $http, CartService){
+var InvoiceController= ['$scope','$http','CartService',function($scope, $http, CartService){
 	 $http({
          url: 'http://localhost:8080/Ekart/cart',
          method: "POST",
@@ -8,6 +8,6 @@ var InvoiceController= function($scope, $http, CartService){
 		$scope.invoice=data;
 		CartService.clear();
 	});
-};
+}];
 
 demoApp.controller('InvoiceController', InvoiceController);

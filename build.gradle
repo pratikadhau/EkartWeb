@@ -15,8 +15,8 @@ repositories {
 
 task deploylocal() << {
 	copy{
-	  from "${buildDir}\\libs"
-	  into "/home/lt013962/installed/apache-tomcat-8.0.8/webapps"
+	  from "${buildDir}/ibs/"
+	  into "/home/lt013962/installed/apache-tomcat-8.0.8/webapps/"
 	  include '*.war'
 	}
   }

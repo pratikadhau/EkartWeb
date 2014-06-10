@@ -32,7 +32,7 @@
 		<tr ng-repeat="product in model.cartProductList">
 			<td>{{product.productId}}</td>
 			<td>{{product.name}}</td>
-			<td>{{product.price}}</td>
+			<td>${{product.price | currencyF}}</td>
             <td>
                 <button ng-click='model.removeFromCart(product.productId)'>remove</button>
             </td>

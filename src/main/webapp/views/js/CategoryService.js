@@ -1,4 +1,4 @@
-var CategoryService= function($http,$q) {
+var CategoryService= ['$http','$q',function($http,$q) {
 	var categoryService={};
 	categoryService.getCategories = function(callBack) {
         $http.get("http://localhost:8080/Ekart/category/").success(function(data){
@@ -6,6 +6,6 @@ var CategoryService= function($http,$q) {
         });
 	};
 	return categoryService;
-};
+}];
 
 demoApp.factory("CategoryService",CategoryService);

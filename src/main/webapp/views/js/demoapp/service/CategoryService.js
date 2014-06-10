@@ -1,7 +1,7 @@
-var CategoryService= ['$http','$q',function($http,$q) {
+var CategoryService= ['$http','ENV',function($http,ENV) {
 	var categoryService={};
 	categoryService.getCategories = function(callBack) {
-        $http.get("http://localhost:8080/Ekart/category/").success(function(data){
+        $http.get(ENV.EKartBaseURL+"/category/").success(function(data){
             callBack(data);
         });
 	};

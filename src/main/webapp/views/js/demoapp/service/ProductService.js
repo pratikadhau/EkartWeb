@@ -1,8 +1,8 @@
-var ProductService = ['$http','CartService',function ($http,CartService){
+var ProductService = ['$http','CartService','ENV',function ($http,CartService,ENV){
     var productService={};
 
     productService.getProducts = function(categoryId,callBack){
-        $http.get("http://localhost:8080/Ekart/category/"+categoryId).success(function(data) {
+        $http.get(ENV.EKartBaseURL+"/category/"+categoryId).success(function(data) {
              callBack(data);
         });
     }

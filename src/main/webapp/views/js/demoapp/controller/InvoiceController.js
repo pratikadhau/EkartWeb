@@ -1,6 +1,6 @@
-var InvoiceController= ['$scope','$http','CartService',function($scope, $http, CartService){
+var InvoiceController= ['$scope','$http','CartService','ENV',function($scope, $http, CartService,ENV){
 	 $http({
-         url: 'http://localhost:8080/Ekart/cart',
+         url: ENV.EKartBaseURL+'/cart',
          method: "POST",
          data : CartService.getCart(),
          headers: {'Content-Type': 'application/json'}

@@ -1,4 +1,4 @@
-var demoApp = angular.module("demoApp", ["ngRoute"]);
+var demoApp = angular.module("demoApp", ["ngRoute","config"]);
 
 demoApp.config(function($routeProvider) {
 	$routeProvider.when('/categoryList', {
